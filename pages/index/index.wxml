@@ -1,0 +1,24 @@
+<!--index.wxml-->
+<view class="container">
+  <image mode="scaleToFill" src="{{imageBgSrc}}" class="image-bg"/>
+
+  <view class="add-con" bindtap="handleChooseImage">
+    <image
+      class="image-item item-{{item}}"
+      mode="widthFix"
+      src="{{imageAddSrc}}"
+      wx:if="{{isShowImage}}" />
+    <text class="text-item" wx:if="{{isShowText}}">上传一张黑白照片</text>
+  </view>
+
+  <progress
+    id="progress"
+    class="progress-item"
+    wx:if="{{isProgress}}"
+    percent="{{progressPercent}}"
+    stroke-width="4"
+    activeColor="white"
+    backgroundColor="#333"
+    active="true"
+    active-mode="forwards" />
+</view>

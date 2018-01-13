@@ -1,0 +1,100 @@
+/**index.wxss**/
+
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+}
+
+.image-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: .8;
+}
+
+.add-con {
+  position: relative;
+  width: 224px;
+  padding-top: 70%;
+  text-align: center;
+}
+
+.image-item {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+}
+
+.item-camera {
+  width: 55px;
+  margin-left: -22px;
+  margin-top: -22px;
+}
+
+.item-image {
+  top: 0;
+  width: 100%;
+  margin-left: -50%;
+}
+
+.text-item{
+  display: block;
+  width: 100%;
+  margin-top: -30%;
+  color: #fff;
+  font-size: 18px;
+
+}
+
+.progress-item {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  margin-left: -56px;
+  margin-top: -2px;
+  width: 112px;
+}
+
+.loading-con {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height:44px;
+  margin-left: -22px;
+  margin-top: -22px;
+}
+
+.icon-loading {
+  width: 100%;
+}
+
+@keyframes circle {
+  0% {
+    opacity:0.35;
+    width:190px;
+    height:190px;
+  }
+  50% {
+    transform: rotate(180deg)
+  }
+  100% {
+    transform: rotate(360deg)
+  }
+}
+
+.ripple {
+  transform-origin: center;
+  animation: circle 3.5s linear infinite;
+}
