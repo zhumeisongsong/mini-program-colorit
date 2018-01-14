@@ -1,30 +1,32 @@
 App({
-    onLaunch: function () {
-        var logs = wx.getStorageSync('logs') || [];
-        logs.unshift(Date.now());
-        wx.setStorageSync('logs', logs)
-    },
-    getUserInfo: function (cb) {
-        var that = this;
-        if (this.globalData.userInfo) {
-            typeof cb == "function" && cb(this.globalData.userInfo)
-        } else {
-            //调用登录接口
-            wx.login({
-                success: function () {
-                    wx.getUserInfo({
-                        success: function (res) {
-                            that.globalData.userInfo = res.userInfo;
-                            typeof cb == "function" && cb(that.globalData.userInfo)
-                        }
-                    })
-                }
-            })
+  onLaunch: function () {
+    var logs = wx.getStorageSync('logs') || [];
+    logs.unshift(Date.now());
+    wx.setStorageSync('logs', logs)
+  },
+  getUserInfo: function (cb) {
+    var that = this;
+    if (this.globalData.userInfo) {
+      typeof cb == "function" && cb(this.globalData.userInfo)
+    } else {
+      //调用登录接口
+      wx.login({
+        success: function () {
+          wx.getUserInfo({
+            success: function (res) {
+              that.globalData.userInfo = res.userInfo;
+              typeof cb == "function" && cb(that.globalData.userInfo)
+            }
+          })
         }
-    },
-
-    globalData: {
-        host: "http://maysongshow.cn",
-        API_root:"xcx"
+      })
     }
+  },
+
+  globalData: {
+    host: 'http://120.79.187.171:8888/',
+    APIRoot: 'api/',
+    APIHost: host + APIRoot,
+    uploadFilePath: 'colorit/'
+  }
 });
