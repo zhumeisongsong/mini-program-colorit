@@ -13,7 +13,9 @@ Page({
   },
   handleChooseImage: function (event) {
     var _this = this
-    chooseImage(_this)
+    if (event.currentTarget.dataset.type === 'camera') {
+      chooseImage(_this)
+    }
   },
   handlePlayAgain: function () {
     this.setData({
@@ -73,22 +75,5 @@ function uploadImage(page, path) {
     page.setData({
       progressPercent: 100
     })
-  })
-}
-
-function saveImage(path) {
-  wx.saveImageToPhotosAlbum({
-    filePath: path,
-    success: function (res) {
-      console.log(res)
-      wx.showModal({
-        title: 'colorit',
-        content: '保存成功',
-        showCancel: false
-      })
-    },
-    fail: function (res) {
-      console.log(res)
-    }
   })
 }
