@@ -4,19 +4,16 @@ Page({
   data: {
     imageBgSrc: '../../image/con-bg.jpg',
     imageAddSrc: '../../image/camera.svg',
+    item: 'camera',
     isShowCamera: true,
     isShowText: true,
     isProgress: false,
-    isShowCanvas: false,
     isShowAgainButton: false,
     progressPercent: 0,
   },
-  handleChooseImage: function () {
+  handleChooseImage: function (event) {
     var _this = this
     chooseImage(_this)
-  },
-  handleSaveImage: function () {
-    saveCanvas()
   },
   handlePlayAgain: function () {
     this.setData({
@@ -57,13 +54,11 @@ function uploadImage(page, path) {
       console.log('success')
       var base64 = 'data:image/jpeg;base64,' + res.data.substring(1, res.data.length - 1)
       page.setData({
+        imageAddSrc: base64,
         isProgress: false,
-        isShowCamera: false,
-        isShowCanvas: true,
+        isShowCamera: true,
         isShowAgainButton: true
       })
-      console.log(base64)
-      drawImage(base64)
     },
     fail: function (res) {
       consloe.log(res)
@@ -78,24 +73,6 @@ function uploadImage(page, path) {
     page.setData({
       progressPercent: 100
     })
-  })
-}
-
-function drawImage(base64) {
-  var context = wx.createCanvasContext('canvas')
-  context.drawImage(base64, 0, 0, 224, 224)
-  context.draw()
-}
-
-function saveCanvas() {
-  wx.canvasToTempFilePath({
-    canvasId: 'canvas',
-    success: function (res) {
-      saveImage(res.tempFilePath)
-    },
-    fail: function (res) {
-      console.log(res)
-    }
   })
 }
 
