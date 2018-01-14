@@ -24,9 +24,7 @@ App({
   },
 
   globalData: {
-    host: 'http://120.79.187.171:8888/',
-    APIRoot: 'api/',
-    APIHost: host + APIRoot,
+    APIHost: 'http://120.79.187.171:8888/api/',
     uploadFilePath: 'colorit/'
   }
 });
