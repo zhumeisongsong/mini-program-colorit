@@ -62,6 +62,7 @@ function uploadImage(page, path) {
         isShowCanvas: true,
         isShowAgainButton: true
       })
+      console.log(base64)
       drawImage(base64)
     },
     fail: function (res) {
@@ -80,7 +81,7 @@ function uploadImage(page, path) {
   })
 }
 
-function drawCanvas(base64) {
+function drawImage(base64) {
   var context = wx.createCanvasContext('canvas')
   context.drawImage(base64, 0, 0, 224, 224)
   context.draw()
