@@ -6,8 +6,8 @@
     <canvas
       class="image-item item-canvas"
       canvas-id="canvas"
-      bindtap="handleSaveImage">
-    </canvas>
+      wx:if="{{isShowCanvas}}"
+      bindtap="handleSaveImage" />
     <image
       class="image-item item-camera"
       mode="widthFix"
@@ -31,5 +31,5 @@
     activeColor="white"
     backgroundColor="#333"
     active="true"
-    active-mode="forwards" />
+    active-mode="forwards"/>
 </view>

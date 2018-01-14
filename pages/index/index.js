@@ -23,6 +23,7 @@ Page({
       item: 'camera',
       imageAddSrc: '../../image/camera.svg',
       isShowCamera: true,
+      isShowCanvas: false,
       isShowText: true,
       isShowAgainButton: false,
     })
@@ -79,7 +80,7 @@ function uploadImage(page, path) {
   })
 }
 
-function drawImage(base64) {
+function drawCanvas(base64) {
   var context = wx.createCanvasContext('canvas')
   context.drawImage(base64, 0, 0, 224, 224)
   context.draw()
@@ -97,7 +98,7 @@ function saveCanvas() {
   })
 }
 
-function saveImage(path){
+function saveImage(path) {
   wx.saveImageToPhotosAlbum({
     filePath: path,
     success: function (res) {
